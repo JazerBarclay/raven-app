@@ -1,0 +1,5 @@
+# To get the google-services.json, go to the firebase console and add a new android app to create
+run :
+keytool -exportcert -list -v -alias androiddebugkey -keystore ~/.android/debug.keystore
+with the password 'android'
+to generate a test key and use the SHA1 with the new android app
