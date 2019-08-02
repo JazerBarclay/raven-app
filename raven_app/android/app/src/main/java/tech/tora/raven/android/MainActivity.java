@@ -1,4 +1,4 @@
-package com.example.raven_app;
+package tech.tora.raven.android;
 
 import android.os.Bundle;
 import io.flutter.app.FlutterActivity;
