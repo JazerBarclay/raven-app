@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/jazer/Projects/github/raven-app/raven_app/ios/Runner/GoogleService-Info.plist">
-   </FileRef>
-   <FileRef
-      location = "self:">
+      location = "group:Runner.xcodeproj">
    </FileRef>
 </Workspace>
