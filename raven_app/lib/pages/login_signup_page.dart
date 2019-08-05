@@ -102,15 +102,19 @@ class _LoginSignUpPageState extends State<LoginSignUpPage> {
   Widget build(BuildContext context) {
     _isIos = Theme.of(context).platform == TargetPlatform.iOS;
     return new Scaffold(
+        backgroundColor: Color.fromRGBO(37, 41, 44, 1),
         appBar: new AppBar(
           title: new Text('Raven Login'),
         ),
-        body: Stack(
-          children: <Widget>[
-            _showBody(),
-            _showCircularProgress(),
-          ],
-        ));
+        body: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              _showBody(),
+              _showCircularProgress(),
+            ],
+          ),
+    );
   }
 
   Widget _showCircularProgress(){
@@ -144,7 +148,7 @@ class _LoginSignUpPageState extends State<LoginSignUpPage> {
 
   Widget _showBody(){
     return new Container(
-        padding: EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(20.0),
         child: new Form(
           key: _formKey,
           child: new ListView(
@@ -182,11 +186,11 @@ class _LoginSignUpPageState extends State<LoginSignUpPage> {
     return new Hero(
       tag: 'hero',
       child: Padding(
-        padding: EdgeInsets.fromLTRB(0.0, 70.0, 0.0, 0.0),
+        padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
         child: CircleAvatar(
           backgroundColor: Colors.transparent,
-          radius: 48.0,
-          child: Image.asset('assets/flutter-icon.png'),
+          radius: 100.0,
+          child: Image.asset('assets/images/icon_medium.png'),
         ),
       ),
     );
@@ -194,13 +198,19 @@ class _LoginSignUpPageState extends State<LoginSignUpPage> {
 
   Widget _showEmailInput() {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(0.0, 100.0, 0.0, 0.0),
+      padding: const EdgeInsets.fromLTRB(0.0, 15.0, 0.0, 0.0),
       child: new TextFormField(
         maxLines: 1,
         keyboardType: TextInputType.emailAddress,
+        style: TextStyle(
+          color: Colors.white,
+        ),
         autofocus: false,
         decoration: new InputDecoration(
             hintText: 'Email',
+            hintStyle: TextStyle(
+              color: Colors.grey,
+            ),
             icon: new Icon(
               Icons.mail,
               color: Colors.grey,
@@ -218,8 +228,14 @@ class _LoginSignUpPageState extends State<LoginSignUpPage> {
         maxLines: 1,
         obscureText: true,
         autofocus: false,
+        style: TextStyle(
+          color: Colors.white,
+        ),
         decoration: new InputDecoration(
             hintText: 'Password',
+            hintStyle: TextStyle(
+              color: Colors.grey,
+            ),
             icon: new Icon(
               Icons.lock,
               color: Colors.grey,
@@ -234,10 +250,10 @@ class _LoginSignUpPageState extends State<LoginSignUpPage> {
     return new FlatButton(
       child: _formMode == FormMode.LOGIN
           ? new Text('Create an account',
-              style: new TextStyle(fontSize: 18.0, fontWeight: FontWeight.w300))
+              style: new TextStyle(fontSize: 18.0, fontWeight: FontWeight.w300, color: Colors.grey))
           : new Text('Have an account? Sign in',
               style:
-                  new TextStyle(fontSize: 18.0, fontWeight: FontWeight.w300)),
+                  new TextStyle(fontSize: 18.0, fontWeight: FontWeight.w300, color: Colors.grey)),
       onPressed: _formMode == FormMode.LOGIN
           ? _changeFormToSignUp
           : _changeFormToLogin,
@@ -252,7 +268,7 @@ class _LoginSignUpPageState extends State<LoginSignUpPage> {
           child: new RaisedButton(
             elevation: 5.0,
             shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
-            color: Colors.blue,
+            color: Color.fromRGBO(37, 41, 44, .8),
             child: _formMode == FormMode.LOGIN
                 ? new Text('Login',
                     style: new TextStyle(fontSize: 20.0, color: Colors.white))
